@@ -1,0 +1,7 @@
+Things I want to add
+	Make the ingredients and the orders visually distict
+	Make timers on the orders, make them increase in speed
+	Make the orders change position
+	Mkae the number of ingredients and orders increase
+	Make obstacles
+	Make the game look good lol

@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlg04j47a4o3t"]
+
+[ext_resource type="Texture2D" uid="uid://b85v85akt8hio" path="res://Game/Bar.png" id="1_rbtt0"]
+[ext_resource type="Script" path="res://Game/NewCharacter.gd" id="2_n6bat"]
+[ext_resource type="Texture2D" uid="uid://b3y8t2b6dp8bv" path="res://Half.png" id="3_o5msk"]
+[ext_resource type="Texture2D" uid="uid://c662gb8blvdxx" path="res://Middle.png" id="4_btv1i"]
+[ext_resource type="Texture2D" uid="uid://dcc3yxxq7h24r" path="res://Empty.png" id="5_1ghe0"]
+[ext_resource type="Script" path="res://Game/Drink.gd" id="6_3diio"]
+[ext_resource type="Script" path="res://Game/NPC.gd" id="7_46gus"]
+[ext_resource type="Script" path="res://Game/Red.gd" id="8_4aav1"]
+[ext_resource type="Texture2D" uid="uid://dnih46cakpnek" path="res://Ingredient.png" id="9_dnu2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2he66"]
+radius = 93.1357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pl4u0"]
+radius = 95.8449
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5v7i"]
+radius = 96.13
+
+[node name="Main" type="Node2D"]
+position = Vector2(960, 540)
+
+[node name="Bar" type="Sprite2D" parent="."]
+texture = ExtResource("1_rbtt0")
+
+[node name="Character" type="Node2D" parent="."]
+script = ExtResource("2_n6bat")
+
+[node name="Cup" type="Node2D" parent="Character"]
+
+[node name="One" type="Sprite2D" parent="Character/Cup"]
+show_behind_parent = true
+position = Vector2(1, 47)
+texture = ExtResource("3_o5msk")
+
+[node name="Two" type="Sprite2D" parent="Character/Cup"]
+show_behind_parent = true
+position = Vector2(0, 1)
+rotation = 3.14159
+texture = ExtResource("4_btv1i")
+
+[node name="Three" type="Sprite2D" parent="Character/Cup"]
+show_behind_parent = true
+position = Vector2(0, -45)
+rotation = 3.14159
+texture = ExtResource("3_o5msk")
+
+[node name="Empty" type="Sprite2D" parent="Character/Cup"]
+texture = ExtResource("5_1ghe0")
+
+[node name="Body" type="Area2D" parent="Character/Cup"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Cup/Body"]
+position = Vector2(0.5, -1)
+shape = SubResource("CircleShape2D_2he66")
+
+[node name="Drink" type="Node2D" parent="."]
+script = ExtResource("6_3diio")
+
+[node name="NPC" type="Node2D" parent="." groups=["border_object"]]
+script = ExtResource("7_46gus")
+
+[node name="Cup" type="Node2D" parent="NPC"]
+position = Vector2(0, -800)
+
+[node name="One" type="Sprite2D" parent="NPC/Cup"]
+show_behind_parent = true
+position = Vector2(1, 47)
+texture = ExtResource("3_o5msk")
+
+[node name="Two" type="Sprite2D" parent="NPC/Cup"]
+show_behind_parent = true
+position = Vector2(0, 1)
+rotation = 3.14159
+texture = ExtResource("4_btv1i")
+
+[node name="Three" type="Sprite2D" parent="NPC/Cup"]
+show_behind_parent = true
+position = Vector2(0, -45)
+rotation = 3.14159
+texture = ExtResource("3_o5msk")
+
+[node name="Empty" type="Sprite2D" parent="NPC/Cup"]
+texture = ExtResource("5_1ghe0")
+
+[node name="NPC" type="StaticBody2D" parent="NPC/Cup"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Cup/NPC"]
+position = Vector2(0.5, -1)
+shape = SubResource("CircleShape2D_pl4u0")
+
+[node name="NPC2" type="Node2D" parent="." groups=["border_object"]]
+script = ExtResource("7_46gus")
+
+[node name="Cup" type="Node2D" parent="NPC2"]
+position = Vector2(0, -800)
+
+[node name="One" type="Sprite2D" parent="NPC2/Cup"]
+show_behind_parent = true
+position = Vector2(1, 47)
+texture = ExtResource("3_o5msk")
+
+[node name="Two" type="Sprite2D" parent="NPC2/Cup"]
+show_behind_parent = true
+position = Vector2(0, 1)
+rotation = 3.14159
+texture = ExtResource("4_btv1i")
+
+[node name="Three" type="Sprite2D" parent="NPC2/Cup"]
+show_behind_parent = true
+position = Vector2(0, -45)
+rotation = 3.14159
+texture = ExtResource("3_o5msk")
+
+[node name="Empty" type="Sprite2D" parent="NPC2/Cup"]
+texture = ExtResource("5_1ghe0")
+
+[node name="NPC" type="StaticBody2D" parent="NPC2/Cup"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/Cup/NPC"]
+position = Vector2(0.5, -1)
+shape = SubResource("CircleShape2D_pl4u0")
+
+[node name="Red" type="Node2D" parent="." groups=["border_object", "color"]]
+script = ExtResource("8_4aav1")
+
+[node name="Ingredient" type="StaticBody2D" parent="Red"]
+position = Vector2(0, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red/Ingredient"]
+shape = SubResource("CircleShape2D_n5v7i")
+
+[node name="Ingredient" type="Sprite2D" parent="Red/Ingredient"]
+texture = ExtResource("9_dnu2j")
+
+[node name="Blue" type="Node2D" parent="." groups=["border_object", "color"]]
+script = ExtResource("8_4aav1")
+
+[node name="Ingredient" type="StaticBody2D" parent="Blue"]
+position = Vector2(0, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue/Ingredient"]
+shape = SubResource("CircleShape2D_n5v7i")
+
+[node name="Ingredient" type="Sprite2D" parent="Blue/Ingredient"]
+texture = ExtResource("9_dnu2j")
+
+[node name="Yellow" type="Node2D" parent="." groups=["border_object", "color"]]
+script = ExtResource("8_4aav1")
+
+[node name="Ingredient" type="StaticBody2D" parent="Yellow"]
+position = Vector2(0, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yellow/Ingredient"]
+shape = SubResource("CircleShape2D_n5v7i")
+
+[node name="Ingredient" type="Sprite2D" parent="Yellow/Ingredient"]
+texture = ExtResource("9_dnu2j")
